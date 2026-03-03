@@ -47,7 +47,7 @@ export default function GalleryPage() {
             {/* Header */}
             <div className="bg-forest text-cream py-24 px-6 text-center relative overflow-hidden">
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">Visual Stories</div>
+                    <div className="section-subheading text-saffron">Visual Stories</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Gallery</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-xl mx-auto">
@@ -66,7 +66,7 @@ export default function GalleryPage() {
                             onClick={() => setActiveCategory(cat)}
                             aria-pressed={activeCategory === cat}
                             className={`px-5 py-2 font-sans text-xs tracking-widest uppercase border transition-all duration-200 ${activeCategory === cat
-                                    ? 'border-saffron-DEFAULT bg-saffron-DEFAULT text-forest'
+                                    ? 'border-saffron bg-saffron text-forest'
                                     : 'border-white/20 text-cream/60 hover:border-cream/40 hover:text-cream'
                                 }`}
                         >
@@ -107,7 +107,7 @@ export default function GalleryPage() {
                                     <div className="text-center">
                                         <ZoomIn className="w-8 h-8 text-cream mb-2 mx-auto" />
                                         <p className="font-serif text-cream text-sm">{img.title}</p>
-                                        <p className="font-sans text-saffron-DEFAULT text-xs tracking-widest uppercase">{img.category}</p>
+                                        <p className="font-sans text-saffron text-xs tracking-widest uppercase">{img.category}</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@ export default function GalleryPage() {
                         />
                         <div className="mt-4">
                             <h2 className="font-serif text-2xl text-cream">{filtered[lightbox].title}</h2>
-                            <p className="font-sans text-saffron-DEFAULT text-xs tracking-widest uppercase mt-1">{filtered[lightbox].category}</p>
+                            <p className="font-sans text-saffron text-xs tracking-widest uppercase mt-1">{filtered[lightbox].category}</p>
                             <p className="font-sans text-cream/30 text-xs mt-3">
                                 {lightbox + 1} / {filtered.length}
                             </p>

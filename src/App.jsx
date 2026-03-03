@@ -23,9 +23,9 @@ function PageLoader() {
       <div className="text-center">
         <div className="relative w-16 h-16 mx-auto mb-6">
           <div className="w-16 h-16 border-2 border-cream-darker rounded-full" />
-          <div className="w-16 h-16 border-2 border-t-saffron-DEFAULT rounded-full animate-spin absolute inset-0" />
+          <div className="w-16 h-16 border-2 border-t-saffron rounded-full animate-spin absolute inset-0" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-serif text-saffron-DEFAULT text-sm font-bold">SL</span>
+            <span className="font-serif text-saffron text-sm font-bold">SL</span>
           </div>
         </div>
         <p className="font-sans text-forest/40 text-xs tracking-widest uppercase">Loading…</p>

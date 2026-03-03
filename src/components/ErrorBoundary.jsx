@@ -19,7 +19,7 @@ export default class ErrorBoundary extends React.Component {
             return (
                 <div className="min-h-screen bg-cream flex items-center justify-center px-6">
                     <div className="text-center max-w-lg">
-                        <div className="font-serif text-8xl text-saffron-DEFAULT mb-6">!</div>
+                        <div className="font-serif text-8xl text-saffron mb-6">!</div>
                         <h1 className="font-serif text-4xl text-forest mb-4">Something went wrong</h1>
                         <p className="font-body text-forest/60 mb-8">
                             We encountered an unexpected error. Please refresh the page to try again.

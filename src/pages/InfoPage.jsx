@@ -108,10 +108,10 @@ function AccordionItem({ question, answer, index }) {
                 aria-controls={`faq-${index}`}
                 className="w-full text-left flex items-center justify-between py-5 gap-4 group"
             >
-                <span className="font-serif text-lg text-forest group-hover:text-saffron-DEFAULT transition-colors duration-200">
+                <span className="font-serif text-lg text-forest group-hover:text-saffron transition-colors duration-200">
                     {question}
                 </span>
-                <ChevronDown className={`w-5 h-5 text-saffron-DEFAULT shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-5 h-5 text-saffron shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
             </button>
             <div
                 id={`faq-${index}`}
@@ -133,7 +133,7 @@ export default function InfoPage() {
                 />
                 <div className="absolute inset-0 bg-forest/80" />
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">Practical Information</div>
+                    <div className="section-subheading text-saffron">Practical Information</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Visas & Travel Guide</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-2xl mx-auto">
@@ -154,7 +154,7 @@ export default function InfoPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
                     {visaTypes.map((visa, i) => (
                         <AnimatedSection key={visa.type} delay={i * 100}>
-                            <div className="border border-cream-darker p-8 hover:border-saffron-DEFAULT/50 hover:shadow-card transition-all duration-300">
+                            <div className="border border-cream-darker p-8 hover:border-saffron/50 hover:shadow-card transition-all duration-300">
                                 <div className="flex items-center gap-3 mb-4">
                                     <span className="text-3xl">{visa.icon}</span>
                                     <h3 className="font-serif text-xl text-forest">{visa.type}</h3>
@@ -172,7 +172,7 @@ export default function InfoPage() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="bg-cream-dark p-3 border-l-2 border-saffron-DEFAULT">
+                                <div className="bg-cream-dark p-3 border-l-2 border-saffron">
                                     <p className="font-body text-xs text-forest/65">{visa.note}</p>
                                 </div>
                                 {visa.apply.includes('.') && (
@@ -180,7 +180,7 @@ export default function InfoPage() {
                                         href={`https://${visa.apply}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 mt-4 font-sans text-xs text-saffron-DEFAULT hover:underline"
+                                        className="inline-flex items-center gap-2 mt-4 font-sans text-xs text-saffron hover:underline"
                                     >
                                         <FileText className="w-3.5 h-3.5" />
                                         Apply at {visa.apply}
@@ -191,14 +191,14 @@ export default function InfoPage() {
                     ))}
                 </div>
 
-                <div className="bg-saffron-DEFAULT/10 border border-saffron-DEFAULT/30 p-6">
+                <div className="bg-saffron/10 border border-saffron/30 p-6">
                     <div className="flex gap-3">
-                        <Plane className="w-5 h-5 text-saffron-DEFAULT shrink-0 mt-0.5" />
+                        <Plane className="w-5 h-5 text-saffron shrink-0 mt-0.5" />
                         <div>
                             <h4 className="font-serif text-lg text-forest mb-2">ETA Strongly Recommended</h4>
                             <p className="font-body text-forest/65 text-sm">
                                 We strongly recommend all visitors obtain an ETA online before travelling. Visit{' '}
-                                <a href="https://eta.gov.lk" target="_blank" rel="noopener noreferrer" className="text-saffron-DEFAULT hover:underline">
+                                <a href="https://eta.gov.lk" target="_blank" rel="noopener noreferrer" className="text-saffron hover:underline">
                                     eta.gov.lk
                                 </a>{' '}
                                 — the only official government portal. Beware of unofficial websites charging higher fees.
@@ -212,7 +212,7 @@ export default function InfoPage() {
             <section className="py-20 bg-forest text-cream" aria-labelledby="transport-heading">
                 <div className="max-w-7xl mx-auto px-6">
                     <AnimatedSection className="text-center mb-12">
-                        <div className="section-subheading text-saffron-DEFAULT">Getting Around</div>
+                        <div className="section-subheading text-saffron">Getting Around</div>
                         <h2 id="transport-heading" className="font-serif text-5xl text-cream mb-4">Transport Guide</h2>
                         <div className="divider-amber" />
                     </AnimatedSection>
@@ -220,19 +220,19 @@ export default function InfoPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {transportOptions.map((opt, i) => (
                             <AnimatedSection key={opt.title} delay={i * 80}>
-                                <div className="border border-white/10 p-6 hover:border-saffron-DEFAULT/50 transition-all duration-300 h-full">
+                                <div className="border border-white/10 p-6 hover:border-saffron/50 transition-all duration-300 h-full">
                                     <div className="text-3xl mb-3">{opt.icon}</div>
                                     <h3 className="font-serif text-xl text-cream mb-3">{opt.title}</h3>
                                     <p className="font-body text-cream/60 text-sm leading-relaxed mb-4">{opt.description}</p>
                                     <ul className="space-y-1.5 mb-4">
                                         {opt.tips.map(tip => (
                                             <li key={tip} className="flex items-start gap-2 font-sans text-xs text-cream/50">
-                                                <span className="text-saffron-DEFAULT mt-0.5">›</span>
+                                                <span className="text-saffron mt-0.5">›</span>
                                                 {tip}
                                             </li>
                                         ))}
                                     </ul>
-                                    <div className="font-sans text-xs text-saffron-DEFAULT tracking-wider border-t border-white/10 pt-3">
+                                    <div className="font-sans text-xs text-saffron tracking-wider border-t border-white/10 pt-3">
                                         Approx: {opt.cost}
                                     </div>
                                 </div>
@@ -253,9 +253,9 @@ export default function InfoPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
                     {essentials.map((item, i) => (
                         <AnimatedSection key={item.title} delay={i * 80}>
-                            <div className="p-6 border border-cream-darker hover:border-saffron-DEFAULT/40 transition-all duration-300">
+                            <div className="p-6 border border-cream-darker hover:border-saffron/40 transition-all duration-300">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-10 h-10 border border-saffron-DEFAULT flex items-center justify-center text-saffron-DEFAULT">
+                                    <div className="w-10 h-10 border border-saffron flex items-center justify-center text-saffron">
                                         {typeof item.icon === 'string' ? <span className="text-lg">{item.icon}</span> : item.icon}
                                     </div>
                                     <h3 className="font-serif text-xl text-forest">{item.title}</h3>

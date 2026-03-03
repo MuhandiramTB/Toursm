@@ -111,11 +111,11 @@ export default function HomePage() {
                     <div className="text-center text-cream px-6 max-w-5xl mx-auto">
                         {/* Eyebrow */}
                         <div className="flex items-center justify-center gap-3 mb-6 animate-[fadeUp_0.8s_ease_forwards]">
-                            <div className="h-px w-12 bg-saffron-DEFAULT" />
-                            <span className="font-sans text-saffron-DEFAULT text-xs tracking-[0.4em] uppercase">
+                            <div className="h-px w-12 bg-saffron" />
+                            <span className="font-sans text-saffron text-xs tracking-[0.4em] uppercase">
                                 {heroSlides[currentSlide].sub}
                             </span>
-                            <div className="h-px w-12 bg-saffron-DEFAULT" />
+                            <div className="h-px w-12 bg-saffron" />
                         </div>
 
                         {/* Main Title */}
@@ -148,7 +148,7 @@ export default function HomePage() {
                                     onClick={() => goToSlide(i)}
                                     aria-label={`Slide ${i + 1}: ${heroSlides[i].title}`}
                                     className={`transition-all duration-300 ${i === currentSlide
-                                            ? 'w-8 h-1 bg-saffron-DEFAULT'
+                                            ? 'w-8 h-1 bg-saffron'
                                             : 'w-2 h-1 bg-cream/40 hover:bg-cream/70'
                                         }`}
                                 />
@@ -176,7 +176,7 @@ export default function HomePage() {
                 <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
                     {stats.map((stat, i) => (
                         <AnimatedSection key={stat.label} delay={i * 100} className="text-center">
-                            <div className="font-serif text-4xl text-saffron-DEFAULT mb-1">{stat.value}</div>
+                            <div className="font-serif text-4xl text-saffron mb-1">{stat.value}</div>
                             <div className="font-sans text-cream/50 text-xs tracking-widest uppercase">{stat.label}</div>
                         </AnimatedSection>
                     ))}
@@ -190,7 +190,7 @@ export default function HomePage() {
                         <div className="section-subheading">The Pearl of the Indian Ocean</div>
                         <h2 id="intro-heading" className="section-heading mb-6">
                             A Civilisation<br />Kissed by the<br />
-                            <em className="text-saffron-DEFAULT">Indian Ocean</em>
+                            <em className="text-saffron">Indian Ocean</em>
                         </h2>
                         <div className="divider-amber ml-0" />
                         <p className="font-body text-forest/70 leading-relaxed mb-6">
@@ -257,7 +257,7 @@ export default function HomePage() {
             <section className="py-24 bg-forest text-cream" aria-labelledby="top-dest-heading">
                 <div className="max-w-7xl mx-auto px-6">
                     <AnimatedSection className="text-center mb-16">
-                        <div className="section-subheading text-saffron-DEFAULT">Must-See Places</div>
+                        <div className="section-subheading text-saffron">Must-See Places</div>
                         <h2 id="top-dest-heading" className="font-serif text-5xl text-cream mb-4">
                             Iconic Destinations
                         </h2>
@@ -281,8 +281,8 @@ export default function HomePage() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/30 to-transparent" />
                                     <div className="absolute bottom-0 left-0 right-0 p-6">
                                         <div className="flex items-center gap-1 mb-2">
-                                            <Star className="w-3 h-3 text-saffron-DEFAULT fill-saffron-DEFAULT" />
-                                            <span className="font-sans text-saffron-DEFAULT text-xs">{dest.rating}</span>
+                                            <Star className="w-3 h-3 text-saffron fill-saffron" />
+                                            <span className="font-sans text-saffron text-xs">{dest.rating}</span>
                                         </div>
                                         <div className="font-sans text-cream/60 text-xs tracking-widest uppercase mb-1">{dest.category}</div>
                                         <h3 className="font-serif text-xl text-cream leading-tight mb-1">{dest.name}</h3>
@@ -292,7 +292,7 @@ export default function HomePage() {
                                         </div>
                                     </div>
                                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <span className="bg-saffron-DEFAULT text-forest font-sans text-xs tracking-wider uppercase px-3 py-1">
+                                        <span className="bg-saffron text-forest font-sans text-xs tracking-wider uppercase px-3 py-1">
                                             Explore
                                         </span>
                                     </div>
@@ -332,7 +332,7 @@ export default function HomePage() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-forest/70 to-transparent" />
                                     <div className="absolute bottom-4 left-4 text-3xl">{exp.icon}</div>
-                                    <div className="absolute top-4 right-4 bg-saffron-DEFAULT text-forest font-sans text-xs px-3 py-1 tracking-wider uppercase">
+                                    <div className="absolute top-4 right-4 bg-saffron text-forest font-sans text-xs px-3 py-1 tracking-wider uppercase">
                                         {exp.category}
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@ export default function HomePage() {
                                     <p className="font-body text-forest/60 text-sm leading-relaxed flex-1 mb-4">{exp.description}</p>
                                     <div className="flex items-center justify-between text-xs font-sans text-forest/50 pt-4 border-t border-cream-darker">
                                         <span>{exp.duration}</span>
-                                        <span className="text-saffron-DEFAULT font-medium">{exp.price}</span>
+                                        <span className="text-saffron font-medium">{exp.price}</span>
                                     </div>
                                 </div>
                             </div>
@@ -369,7 +369,7 @@ export default function HomePage() {
                 </div>
                 <div className="relative z-10 text-center text-cream max-w-3xl mx-auto px-6">
                     <AnimatedSection>
-                        <div className="section-subheading text-saffron-DEFAULT">Start Planning</div>
+                        <div className="section-subheading text-saffron">Start Planning</div>
                         <h2 id="cta-heading" className="font-serif text-5xl md:text-6xl text-cream mb-6">
                             Your Dream Journey<br />
                             <em className="text-saffron-light">Begins Here</em>
@@ -406,7 +406,7 @@ function NewsletterSection() {
     };
 
     return (
-        <section id="newsletter" className="py-24 bg-saffron-DEFAULT/10 border-y border-saffron-DEFAULT/20" aria-labelledby="newsletter-heading">
+        <section id="newsletter" className="py-24 bg-saffron/10 border-y border-saffron/20" aria-labelledby="newsletter-heading">
             <div className="max-w-2xl mx-auto px-6 text-center">
                 <AnimatedSection>
                     <div className="section-subheading">Stay Inspired</div>
@@ -419,7 +419,7 @@ function NewsletterSection() {
                     </p>
 
                     {status === 'success' ? (
-                        <div className="flex items-center justify-center gap-3 py-4 text-saffron-DEFAULT">
+                        <div className="flex items-center justify-center gap-3 py-4 text-saffron">
                             <span className="text-2xl">✓</span>
                             <span className="font-serif text-xl">You're on the list. Welcome to the journey.</span>
                         </div>
@@ -433,7 +433,7 @@ function NewsletterSection() {
                                 onChange={e => setEmail(e.target.value)}
                                 placeholder="Your email address"
                                 required
-                                className="flex-1 bg-cream border-2 border-forest/20 px-5 py-4 font-body text-forest placeholder-forest/40 focus:outline-none focus:border-saffron-DEFAULT transition-colors"
+                                className="flex-1 bg-cream border-2 border-forest/20 px-5 py-4 font-body text-forest placeholder-forest/40 focus:outline-none focus:border-saffron transition-colors"
                             />
                             <button
                                 type="submit"
@@ -446,7 +446,7 @@ function NewsletterSection() {
                     )}
                     <p className="font-sans text-forest/40 text-xs mt-4">
                         No spam. Unsubscribe at any time. Read our{' '}
-                        <Link to="/info" className="underline hover:text-saffron-DEFAULT transition-colors">Privacy Policy</Link>.
+                        <Link to="/info" className="underline hover:text-saffron transition-colors">Privacy Policy</Link>.
                     </p>
                 </AnimatedSection>
             </div>

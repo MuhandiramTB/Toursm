@@ -48,7 +48,7 @@ export default function MapPage() {
         <div className="min-h-screen pt-20 bg-forest">
             {/* Header */}
             <div className="bg-forest text-cream py-16 px-6 text-center">
-                <div className="section-subheading text-saffron-DEFAULT">Navigate</div>
+                <div className="section-subheading text-saffron">Navigate</div>
                 <h1 className="font-serif text-5xl text-cream mb-4">Interactive Map</h1>
                 <div className="divider-amber" />
                 <p className="font-body text-cream/70 max-w-xl mx-auto">
@@ -64,7 +64,7 @@ export default function MapPage() {
                     <div className="lg:w-72 shrink-0 space-y-4">
                         {/* Legend */}
                         <div className="bg-forest border border-white/10 p-5">
-                            <h2 className="font-sans text-xs tracking-[0.3em] uppercase text-saffron-DEFAULT mb-4">Category Legend</h2>
+                            <h2 className="font-sans text-xs tracking-[0.3em] uppercase text-saffron mb-4">Category Legend</h2>
                             <ul className="space-y-2">
                                 {legend.map(([cat, color]) => (
                                     <li key={cat} className="flex items-center gap-3">
@@ -77,14 +77,14 @@ export default function MapPage() {
 
                         {/* Destination List */}
                         <div className="bg-forest border border-white/10 p-5">
-                            <h2 className="font-sans text-xs tracking-[0.3em] uppercase text-saffron-DEFAULT mb-4">All Destinations</h2>
+                            <h2 className="font-sans text-xs tracking-[0.3em] uppercase text-saffron mb-4">All Destinations</h2>
                             <ul className="space-y-1 max-h-96 overflow-y-auto no-scrollbar">
                                 {mapDestinations.map(dest => (
                                     <li key={dest.id}>
                                         <button
                                             onClick={() => setSelected(dest)}
                                             className={`w-full text-left px-3 py-2.5 transition-all duration-200 flex items-center gap-2 ${selected?.id === dest.id
-                                                    ? 'bg-saffron-DEFAULT/20 text-saffron-DEFAULT'
+                                                    ? 'bg-saffron/20 text-saffron'
                                                     : 'text-cream/60 hover:text-cream hover:bg-white/5'
                                                 }`}
                                         >
@@ -98,14 +98,14 @@ export default function MapPage() {
 
                         {/* Selected Detail */}
                         {selected && (
-                            <div className="bg-forest border border-saffron-DEFAULT/40 overflow-hidden">
+                            <div className="bg-forest border border-saffron/40 overflow-hidden">
                                 <img src={selected.image} alt={selected.name} className="w-full h-36 object-cover" />
                                 <div className="p-4">
-                                    <div className="font-sans text-saffron-DEFAULT text-xs tracking-widest uppercase mb-1">{selected.category}</div>
+                                    <div className="font-sans text-saffron text-xs tracking-widest uppercase mb-1">{selected.category}</div>
                                     <h3 className="font-serif text-lg text-cream mb-2">{selected.name}</h3>
                                     <p className="font-body text-cream/60 text-xs leading-relaxed mb-3">{selected.shortDesc}</p>
                                     <div className="flex items-center gap-1">
-                                        <Star className="w-3 h-3 text-saffron-DEFAULT fill-saffron-DEFAULT" />
+                                        <Star className="w-3 h-3 text-saffron fill-saffron" />
                                         <span className="font-sans text-cream/70 text-xs">{selected.rating} / 5</span>
                                     </div>
                                 </div>
@@ -143,11 +143,11 @@ export default function MapPage() {
                                                 style={{ width: 'calc(100% + 24px)', marginLeft: '-12px', marginTop: '-12px', marginRight: '-12px' }}
                                             />
                                             <div className="px-1">
-                                                <p className="font-sans text-saffron-DEFAULT text-xs tracking-widest uppercase mb-1">{dest.category}</p>
+                                                <p className="font-sans text-saffron text-xs tracking-widest uppercase mb-1">{dest.category}</p>
                                                 <h3 className="font-serif text-base text-cream mb-1">{dest.name}</h3>
                                                 <p className="font-sans text-cream/60 text-xs leading-relaxed">{dest.shortDesc}</p>
                                                 <div className="flex items-center gap-1 mt-2">
-                                                    <Star className="w-3 h-3 text-saffron-DEFAULT fill-saffron-DEFAULT" />
+                                                    <Star className="w-3 h-3 text-saffron fill-saffron" />
                                                     <span className="font-sans text-cream/70 text-xs">{dest.rating}</span>
                                                 </div>
                                             </div>

@@ -19,7 +19,7 @@ export default function BlogPage() {
                 />
                 <div className="absolute inset-0 bg-forest/80" />
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">Editorial</div>
+                    <div className="section-subheading text-saffron">Editorial</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Stories & Dispatches</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-2xl mx-auto">
@@ -37,19 +37,19 @@ export default function BlogPage() {
                         onClick={() => setSelected(blogPosts[0])}
                         aria-label={`Read article: ${blogPosts[0].title}`}
                     >
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-cream-darker hover:border-saffron-DEFAULT/50 hover:shadow-card-hover transition-all duration-500">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-cream-darker hover:border-saffron/50 hover:shadow-card-hover transition-all duration-500">
                             <div className="relative h-80 lg:h-auto overflow-hidden">
                                 <img
                                     src={blogPosts[0].image}
                                     alt={blogPosts[0].title}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute top-5 left-5 bg-saffron-DEFAULT text-forest font-sans text-xs px-3 py-1 tracking-widest uppercase">
+                                <div className="absolute top-5 left-5 bg-saffron text-forest font-sans text-xs px-3 py-1 tracking-widest uppercase">
                                     Featured
                                 </div>
                             </div>
                             <div className="p-10 flex flex-col justify-center">
-                                <div className="font-sans text-saffron-DEFAULT text-xs tracking-widest uppercase mb-3">{blogPosts[0].category}</div>
+                                <div className="font-sans text-saffron text-xs tracking-widest uppercase mb-3">{blogPosts[0].category}</div>
                                 <h2 className="font-serif text-3xl text-forest leading-tight mb-4">{blogPosts[0].title}</h2>
                                 <p className="font-body text-forest/65 leading-relaxed mb-6">{blogPosts[0].excerpt}</p>
                                 <div className="flex items-center gap-4 text-xs font-sans text-forest/50 mb-6">
@@ -61,7 +61,7 @@ export default function BlogPage() {
                                     </span>
                                     <span>{blogPosts[0].date}</span>
                                 </div>
-                                <div className="flex items-center gap-2 text-saffron-DEFAULT font-sans text-sm tracking-wider group-hover:gap-3 transition-all duration-300">
+                                <div className="flex items-center gap-2 text-saffron font-sans text-sm tracking-wider group-hover:gap-3 transition-all duration-300">
                                     Read Article <ArrowRight className="w-4 h-4" />
                                 </div>
                             </div>
@@ -86,12 +86,12 @@ export default function BlogPage() {
                                         loading="lazy"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    <div className="absolute top-4 left-4 bg-forest/80 text-saffron-DEFAULT font-sans text-xs px-3 py-1 tracking-widest uppercase">
+                                    <div className="absolute top-4 left-4 bg-forest/80 text-saffron font-sans text-xs px-3 py-1 tracking-widest uppercase">
                                         {post.category}
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <h3 className="font-serif text-xl text-forest leading-tight mb-3 group-hover:text-saffron-DEFAULT transition-colors duration-300">
+                                    <h3 className="font-serif text-xl text-forest leading-tight mb-3 group-hover:text-saffron transition-colors duration-300">
                                         {post.title}
                                     </h3>
                                     <p className="font-body text-forest/60 text-sm leading-relaxed line-clamp-2 mb-4">
@@ -123,11 +123,11 @@ function ArticleView({ post, onBack }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 max-w-4xl mx-auto">
-                    <div className="font-sans text-saffron-DEFAULT text-xs tracking-widest uppercase mb-3">{post.category}</div>
+                    <div className="font-sans text-saffron text-xs tracking-widest uppercase mb-3">{post.category}</div>
                     <h1 className="font-serif text-4xl md:text-5xl text-cream leading-tight mb-4">{post.title}</h1>
                     <div className="flex flex-wrap items-center gap-4 text-sm font-sans text-cream/60">
                         <span className="flex items-center gap-1"><User className="w-4 h-4" /> {post.author}</span>
-                        <span className="text-saffron-DEFAULT">{post.authorRole}</span>
+                        <span className="text-saffron">{post.authorRole}</span>
                         <span>·</span>
                         <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {post.readTime}</span>
                         <span>·</span>
@@ -140,14 +140,14 @@ function ArticleView({ post, onBack }) {
             <div className="max-w-3xl mx-auto px-6 py-16">
                 <button
                     onClick={onBack}
-                    className="flex items-center gap-2 font-sans text-xs tracking-widest uppercase text-forest/50 hover:text-saffron-DEFAULT transition-colors mb-10"
+                    className="flex items-center gap-2 font-sans text-xs tracking-widest uppercase text-forest/50 hover:text-saffron transition-colors mb-10"
                     aria-label="Back to all articles"
                 >
                     ← Back to Stories
                 </button>
 
                 <div className="font-body text-forest/75 text-lg leading-relaxed space-y-6">
-                    <p className="text-xl italic font-body text-forest/60 border-l-4 border-saffron-DEFAULT pl-6">
+                    <p className="text-xl italic font-body text-forest/60 border-l-4 border-saffron pl-6">
                         {post.excerpt}
                     </p>
                     <p>

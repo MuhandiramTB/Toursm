@@ -4,7 +4,7 @@ import { Sun, Cloud, CloudRain, Droplets } from 'lucide-react';
 
 const ratingColors = {
     5: 'bg-sage',
-    4: 'bg-saffron-DEFAULT',
+    4: 'bg-saffron',
     3: 'bg-saffron-light',
     2: 'bg-sunset/70',
     1: 'bg-red-400',
@@ -19,7 +19,7 @@ const ratingLabels = {
 };
 
 const WeatherIcon = ({ weather }) => {
-    if (weather === 'Dry') return <Sun className="w-5 h-5 text-saffron-DEFAULT" />;
+    if (weather === 'Dry') return <Sun className="w-5 h-5 text-saffron" />;
     if (weather === 'Monsoon') return <CloudRain className="w-5 h-5 text-ocean" />;
     if (weather === 'Hot') return <Sun className="w-5 h-5 text-sunset" />;
     return <Cloud className="w-5 h-5 text-forest/40" />;
@@ -66,7 +66,7 @@ export default function SeasonalPage() {
                 />
                 <div className="absolute inset-0 bg-forest/80" />
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">When To Go</div>
+                    <div className="section-subheading text-saffron">When To Go</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Seasonal Guide</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-2xl mx-auto">
@@ -102,7 +102,7 @@ export default function SeasonalPage() {
                                 <AnimatedSection key={month.month} delay={i * 60} className="contents">
                                     <tr className="border-b border-cream-darker hover:bg-cream-dark transition-colors group">
                                         <td className="py-5 pr-6">
-                                            <span className="font-serif text-xl text-forest group-hover:text-saffron-DEFAULT transition-colors">{month.month}</span>
+                                            <span className="font-serif text-xl text-forest group-hover:text-saffron transition-colors">{month.month}</span>
                                         </td>
                                         <td className="py-5 px-3 text-center">
                                             <div className="flex items-center justify-center gap-1.5">
@@ -174,7 +174,7 @@ export default function SeasonalPage() {
                                     </div>
                                 </div>
                                 <p className="font-body text-sm text-forest/60">{month.note}</p>
-                                <p className="font-sans text-xs text-saffron-DEFAULT mt-1">{month.regions}</p>
+                                <p className="font-sans text-xs text-saffron mt-1">{month.regions}</p>
                             </div>
                         </AnimatedSection>
                     ))}
@@ -185,7 +185,7 @@ export default function SeasonalPage() {
             <section className="py-20 bg-forest text-cream" aria-labelledby="region-guides">
                 <div className="max-w-7xl mx-auto px-6">
                     <AnimatedSection className="text-center mb-12">
-                        <div className="section-subheading text-saffron-DEFAULT">Region by Region</div>
+                        <div className="section-subheading text-saffron">Region by Region</div>
                         <h2 id="region-guides" className="font-serif text-5xl text-cream mb-4">When to Visit Each Region</h2>
                         <div className="divider-amber" />
                     </AnimatedSection>
@@ -193,7 +193,7 @@ export default function SeasonalPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {regionGuides.map((region, i) => (
                             <AnimatedSection key={region.name} delay={i * 120}>
-                                <div className="group relative overflow-hidden bg-forest/40 border border-white/10 hover:border-saffron-DEFAULT/50 transition-all duration-300">
+                                <div className="group relative overflow-hidden bg-forest/40 border border-white/10 hover:border-saffron/50 transition-all duration-300">
                                     <div className="flex flex-col sm:flex-row">
                                         <div className="sm:w-48 h-40 sm:h-auto overflow-hidden shrink-0">
                                             <img
@@ -205,14 +205,14 @@ export default function SeasonalPage() {
                                         </div>
                                         <div className="p-6 flex-1">
                                             <h3 className="font-serif text-xl text-cream mb-1">{region.name}</h3>
-                                            <div className="font-sans text-saffron-DEFAULT text-xs tracking-wider uppercase mb-3">
+                                            <div className="font-sans text-saffron text-xs tracking-wider uppercase mb-3">
                                                 Best: {region.bestMonths}
                                             </div>
                                             <p className="font-body text-cream/60 text-sm leading-relaxed mb-4">{region.description}</p>
                                             <ul className="space-y-1">
                                                 {region.highlights.map(h => (
                                                     <li key={h} className="flex items-center gap-2 font-sans text-xs text-cream/50">
-                                                        <span className="w-1.5 h-1.5 bg-saffron-DEFAULT rounded-full" />
+                                                        <span className="w-1.5 h-1.5 bg-saffron rounded-full" />
                                                         {h}
                                                     </li>
                                                 ))}

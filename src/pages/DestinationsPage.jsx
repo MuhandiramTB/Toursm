@@ -7,7 +7,7 @@ import LazyImage from '../components/LazyImage';
 const CATEGORIES = ['All', 'Heritage', 'Beach', 'Nature', 'Wildlife', 'Culture'];
 
 const categoryColors = {
-    Heritage: 'bg-saffron-DEFAULT text-cream',
+    Heritage: 'bg-saffron text-cream',
     Beach: 'bg-ocean text-cream',
     Nature: 'bg-sage text-cream',
     Wildlife: 'bg-sunset text-cream',
@@ -36,7 +36,7 @@ export default function DestinationsPage() {
                 />
                 <div className="absolute inset-0 bg-forest/80" />
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">Explore</div>
+                    <div className="section-subheading text-saffron">Explore</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Destinations</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-2xl mx-auto">
@@ -57,7 +57,7 @@ export default function DestinationsPage() {
                             value={search}
                             onChange={e => setSearch(e.target.value)}
                             aria-label="Search destinations"
-                            className="border border-cream-darker bg-transparent px-4 py-2 text-sm font-sans text-forest placeholder-forest/40 focus:outline-none focus:border-saffron-DEFAULT transition-colors flex-1 min-w-48 max-w-72"
+                            className="border border-cream-darker bg-transparent px-4 py-2 text-sm font-sans text-forest placeholder-forest/40 focus:outline-none focus:border-saffron transition-colors flex-1 min-w-48 max-w-72"
                         />
 
                         {/* Category Filters */}
@@ -129,7 +129,7 @@ function DestinationCard({ dest, onClick }) {
                     {dest.category}
                 </div>
                 <div className="absolute top-3 right-3 flex items-center gap-1 bg-forest/80 px-2 py-1">
-                    <Star className="w-3 h-3 text-saffron-DEFAULT fill-saffron-DEFAULT" />
+                    <Star className="w-3 h-3 text-saffron fill-saffron" />
                     <span className="font-sans text-cream text-xs">{dest.rating}</span>
                 </div>
             </div>
@@ -149,7 +149,7 @@ function DestinationCard({ dest, onClick }) {
                         <Clock className="w-3 h-3" />
                         {dest.duration}
                     </span>
-                    <span className="text-saffron-DEFAULT font-medium">{dest.price}</span>
+                    <span className="text-saffron font-medium">{dest.price}</span>
                 </div>
             </div>
         </article>
@@ -184,11 +184,11 @@ function DestinationModal({ dest, onClose }) {
                         <h2 id="modal-title" className="font-serif text-3xl text-cream">{dest.name}</h2>
                         <div className="flex items-center gap-3 mt-2">
                             <div className="flex items-center gap-1">
-                                <MapPin className="w-3.5 h-3.5 text-saffron-DEFAULT" />
+                                <MapPin className="w-3.5 h-3.5 text-saffron" />
                                 <span className="font-sans text-cream/70 text-sm">{dest.region}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Star className="w-3.5 h-3.5 text-saffron-DEFAULT fill-saffron-DEFAULT" />
+                                <Star className="w-3.5 h-3.5 text-saffron fill-saffron" />
                                 <span className="font-sans text-cream text-sm">{dest.rating} ({dest.reviews.toLocaleString()} reviews)</span>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ function DestinationModal({ dest, onClose }) {
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {dest.highlights.map(h => (
                                 <li key={h} className="flex items-center gap-2 font-body text-sm text-forest/70">
-                                    <span className="w-1.5 h-1.5 bg-saffron-DEFAULT rounded-full shrink-0" />
+                                    <span className="w-1.5 h-1.5 bg-saffron rounded-full shrink-0" />
                                     {h}
                                 </li>
                             ))}

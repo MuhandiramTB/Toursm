@@ -51,7 +51,7 @@ export default function ExperiencesPage() {
                 />
                 <div className="absolute inset-0 bg-forest/80" />
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">Curated Journeys</div>
+                    <div className="section-subheading text-saffron">Curated Journeys</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Experiences</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-2xl mx-auto">
@@ -85,7 +85,7 @@ export default function ExperiencesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {filtered.map((exp, i) => (
                         <AnimatedSection key={exp.id} delay={i * 100}>
-                            <article className="group bg-cream border border-cream-darker hover:border-saffron-DEFAULT/40 hover:shadow-card-hover transition-all duration-500">
+                            <article className="group bg-cream border border-cream-darker hover:border-saffron/40 hover:shadow-card-hover transition-all duration-500">
                                 {/* Image */}
                                 <div className="relative h-72 overflow-hidden">
                                     <img
@@ -96,7 +96,7 @@ export default function ExperiencesPage() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent" />
                                     <div className="absolute top-4 left-4 text-4xl">{exp.icon}</div>
-                                    <div className="absolute top-4 right-4 bg-saffron-DEFAULT text-forest font-sans text-xs px-3 py-1 tracking-widest uppercase">
+                                    <div className="absolute top-4 right-4 bg-saffron text-forest font-sans text-xs px-3 py-1 tracking-widest uppercase">
                                         {exp.category}
                                     </div>
                                     <div className="absolute bottom-4 left-4 right-4">
@@ -112,7 +112,7 @@ export default function ExperiencesPage() {
                                     <ul className="space-y-2 mb-6">
                                         {exp.highlights.map(h => (
                                             <li key={h} className="flex items-center gap-2 text-sm font-body text-forest/70">
-                                                <CheckCircle className="w-4 h-4 text-saffron-DEFAULT shrink-0" />
+                                                <CheckCircle className="w-4 h-4 text-saffron shrink-0" />
                                                 {h}
                                             </li>
                                         ))}
@@ -124,12 +124,12 @@ export default function ExperiencesPage() {
                                                 <Clock className="w-3.5 h-3.5" />
                                                 {exp.duration}
                                             </span>
-                                            <span className="font-sans text-sm text-saffron-DEFAULT font-medium">{exp.price}</span>
+                                            <span className="font-sans text-sm text-saffron font-medium">{exp.price}</span>
                                         </div>
                                         <button
                                             onClick={() => setExpanded(expanded === exp.id ? null : exp.id)}
                                             aria-expanded={expanded === exp.id}
-                                            className="flex items-center gap-1 font-sans text-xs tracking-widest uppercase text-forest/50 hover:text-saffron-DEFAULT transition-colors"
+                                            className="flex items-center gap-1 font-sans text-xs tracking-widest uppercase text-forest/50 hover:text-saffron transition-colors"
                                         >
                                             {expanded === exp.id ? 'Less' : 'Details'}
                                             <ArrowRight className={`w-3.5 h-3.5 transition-transform ${expanded === exp.id ? 'rotate-90' : ''}`} />
@@ -147,7 +147,7 @@ export default function ExperiencesPage() {
                                                 <ul className="space-y-1">
                                                     {experienceDetails[exp.id].itinerary.map((item, j) => (
                                                         <li key={j} className="font-sans text-xs text-forest/60 flex gap-2">
-                                                            <span className="text-saffron-DEFAULT">›</span>
+                                                            <span className="text-saffron">›</span>
                                                             {item}
                                                         </li>
                                                     ))}

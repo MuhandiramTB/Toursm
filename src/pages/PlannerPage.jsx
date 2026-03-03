@@ -121,7 +121,7 @@ export default function PlannerPage() {
                 />
                 <div className="absolute inset-0 bg-forest/80" />
                 <div className="relative z-10">
-                    <div className="section-subheading text-saffron-DEFAULT">AI-Powered Travel</div>
+                    <div className="section-subheading text-saffron">AI-Powered Travel</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-cream mb-4">Trip Planner</h1>
                     <div className="divider-amber" />
                     <p className="font-body text-cream/70 max-w-2xl mx-auto">
@@ -138,8 +138,8 @@ export default function PlannerPage() {
                         <div className="flex items-center justify-between mb-3">
                             {['Travel Dates', 'Your Style', 'Interests'].map((label, i) => (
                                 <div key={label} className="flex items-center gap-2">
-                                    <div className={`w-8 h-8 flex items-center justify-center border-2 font-sans text-sm transition-all duration-300 ${step > i + 1 ? 'bg-saffron-DEFAULT border-saffron-DEFAULT text-forest' :
-                                            step === i + 1 ? 'border-saffron-DEFAULT text-saffron-DEFAULT' :
+                                    <div className={`w-8 h-8 flex items-center justify-center border-2 font-sans text-sm transition-all duration-300 ${step > i + 1 ? 'bg-saffron border-saffron text-forest' :
+                                            step === i + 1 ? 'border-saffron text-saffron' :
                                                 'border-cream-darker text-forest/30'
                                         }`}>
                                         {step > i + 1 ? <Check className="w-4 h-4" /> : i + 1}
@@ -151,7 +151,7 @@ export default function PlannerPage() {
                         </div>
                         <div className="h-1 bg-cream-darker">
                             <div
-                                className="h-full bg-saffron-DEFAULT transition-all duration-500"
+                                className="h-full bg-saffron transition-all duration-500"
                                 style={{ width: `${((step - 1) / TOTAL_STEPS) * 100}%` }}
                             />
                         </div>
@@ -172,7 +172,7 @@ export default function PlannerPage() {
                                     type="date"
                                     value={formData.startDate}
                                     onChange={e => setFormData(prev => ({ ...prev, startDate: e.target.value }))}
-                                    className="w-full border-b-2 border-cream-darker bg-transparent py-3 font-body text-forest focus:outline-none focus:border-saffron-DEFAULT transition-colors"
+                                    className="w-full border-b-2 border-cream-darker bg-transparent py-3 font-body text-forest focus:outline-none focus:border-saffron transition-colors"
                                     min={new Date().toISOString().split('T')[0]}
                                 />
                             </div>
@@ -186,7 +186,7 @@ export default function PlannerPage() {
                                             key={d}
                                             onClick={() => setFormData(prev => ({ ...prev, duration: d }))}
                                             className={`px-4 py-2 border font-sans text-sm transition-all duration-200 ${formData.duration === d
-                                                    ? 'border-saffron-DEFAULT bg-saffron-DEFAULT text-cream'
+                                                    ? 'border-saffron bg-saffron text-cream'
                                                     : 'border-cream-darker text-forest/60 hover:border-forest'
                                                 }`}
                                         >
@@ -210,7 +210,7 @@ export default function PlannerPage() {
                                         key={b.id}
                                         onClick={() => setFormData(prev => ({ ...prev, budget: b.id }))}
                                         className={`p-4 border text-center transition-all duration-200 ${formData.budget === b.id
-                                                ? 'border-saffron-DEFAULT bg-saffron-DEFAULT/10'
+                                                ? 'border-saffron bg-saffron/10'
                                                 : 'border-cream-darker hover:border-forest'
                                             }`}
                                     >
@@ -242,7 +242,7 @@ export default function PlannerPage() {
                                     key={g.id}
                                     onClick={() => setFormData(prev => ({ ...prev, groupType: g.id }))}
                                     className={`p-6 border text-center transition-all duration-200 ${formData.groupType === g.id
-                                            ? 'border-saffron-DEFAULT bg-saffron-DEFAULT/10'
+                                            ? 'border-saffron bg-saffron/10'
                                             : 'border-cream-darker hover:border-forest'
                                         }`}
                                 >
@@ -276,17 +276,17 @@ export default function PlannerPage() {
                                         onClick={() => toggleInterest(interest.id)}
                                         aria-pressed={isSelected}
                                         className={`p-4 border transition-all duration-200 text-left ${isSelected
-                                                ? 'border-saffron-DEFAULT bg-saffron-DEFAULT/10 shadow-saffron-glow/30'
+                                                ? 'border-saffron bg-saffron/10 shadow-saffron-glow/30'
                                                 : 'border-cream-darker hover:border-forest'
                                             }`}
                                     >
                                         <div className="text-2xl mb-2">{interest.icon}</div>
-                                        <div className={`font-sans text-xs tracking-wide ${isSelected ? 'text-saffron-DEFAULT' : 'text-forest/70'}`}>
+                                        <div className={`font-sans text-xs tracking-wide ${isSelected ? 'text-saffron' : 'text-forest/70'}`}>
                                             {interest.label}
                                         </div>
                                         {isSelected && (
                                             <div className="mt-2">
-                                                <Check className="w-3.5 h-3.5 text-saffron-DEFAULT" />
+                                                <Check className="w-3.5 h-3.5 text-saffron" />
                                             </div>
                                         )}
                                     </button>
@@ -309,7 +309,7 @@ export default function PlannerPage() {
                     <AnimatedSection>
                         {generating ? (
                             <div className="text-center py-24">
-                                <div className="w-16 h-16 border-4 border-cream-darker border-t-saffron-DEFAULT rounded-full animate-spin mx-auto mb-6" />
+                                <div className="w-16 h-16 border-4 border-cream-darker border-t-saffron rounded-full animate-spin mx-auto mb-6" />
                                 <h2 className="font-serif text-3xl text-forest mb-3">Crafting Your Journey…</h2>
                                 <p className="font-body text-forest/60">Our AI is curating the perfect Sri Lanka itinerary for you.</p>
                             </div>
@@ -324,7 +324,7 @@ export default function PlannerPage() {
                                     </div>
                                     <button
                                         onClick={() => { setStep(1); setItinerary(null); setFormData({ startDate: '', duration: 7, groupType: 'couple', interests: [], budget: 'luxury' }); }}
-                                        className="font-sans text-xs tracking-widest uppercase text-forest/50 hover:text-saffron-DEFAULT transition-colors"
+                                        className="font-sans text-xs tracking-widest uppercase text-forest/50 hover:text-saffron transition-colors"
                                     >
                                         Start Over
                                     </button>
@@ -334,24 +334,24 @@ export default function PlannerPage() {
                                     {itinerary.map((day, i) => (
                                         <div
                                             key={day.day}
-                                            className="border border-cream-darker bg-cream p-6 hover:border-saffron-DEFAULT/50 transition-all duration-300"
+                                            className="border border-cream-darker bg-cream p-6 hover:border-saffron/50 transition-all duration-300"
                                             style={{ animationDelay: `${i * 50}ms` }}
                                         >
                                             <div className="flex items-start gap-6">
                                                 <div className="shrink-0 text-center">
-                                                    <div className="font-sans text-xs text-saffron-DEFAULT tracking-widest uppercase">Day</div>
+                                                    <div className="font-sans text-xs text-saffron tracking-widest uppercase">Day</div>
                                                     <div className="font-serif text-4xl text-forest">{String(day.day).padStart(2, '0')}</div>
                                                     <div className="font-sans text-xs text-forest/40">{day.date}</div>
                                                 </div>
                                                 <div className="flex-1">
                                                     <div className="flex items-center gap-2 mb-3">
-                                                        <MapPin className="w-4 h-4 text-saffron-DEFAULT" />
+                                                        <MapPin className="w-4 h-4 text-saffron" />
                                                         <h3 className="font-serif text-xl text-forest">{day.destination}</h3>
                                                     </div>
                                                     <ul className="space-y-1.5 mb-4">
                                                         {day.activities.map((act, j) => (
                                                             <li key={j} className="flex items-start gap-2 font-body text-sm text-forest/65">
-                                                                <span className="text-saffron-DEFAULT mt-1">›</span>
+                                                                <span className="text-saffron mt-1">›</span>
                                                                 {act}
                                                             </li>
                                                         ))}
