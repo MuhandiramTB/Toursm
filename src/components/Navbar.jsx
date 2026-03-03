@@ -36,61 +36,163 @@ export default function Navbar() {
         setDropdown(null);
     }, [location]);
 
-    const navClass = scrolled || !isHome
-        ? 'bg-forest/98 backdrop-blur-md shadow-luxury border-b border-white/5'
-        : 'bg-transparent';
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        document.body.style.overflow = mobileOpen ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [mobileOpen]);
 
-    const textClass = scrolled || !isHome ? 'text-cream' : 'text-cream';
+    const isScrolled = scrolled || !isHome;
+
+    const navBg = isScrolled
+        ? 'rgba(26,18,9,0.98)'
+        : 'transparent';
+
+    const navBorder = isScrolled
+        ? '1px solid rgba(255,255,255,0.06)'
+        : '1px solid transparent';
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navClass}`}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 50,
+                backgroundColor: navBg,
+                borderBottom: navBorder,
+                backdropFilter: isScrolled ? 'blur(16px)' : 'none',
+                WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
+                transition: 'background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease',
+                boxShadow: isScrolled ? '0 25px 50px rgba(26,18,9,0.2)' : 'none',
+            }}
             role="navigation"
             aria-label="Main navigation"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-20">
-                    {/* Logo */}
+            <div style={{ maxWidth: '88rem', margin: '0 auto', padding: '0 1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+
+                    {/* ── Logo ── */}
                     <Link
                         to="/"
-                        className="flex items-center gap-3 group"
                         aria-label="Sri Lanka Tourism - Home"
+                        style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}
                     >
-                        <div className="w-10 h-10 border border-saffron-DEFAULT flex items-center justify-center group-hover:bg-saffron-DEFAULT transition-colors duration-300">
-                            <span className="font-serif text-saffron-DEFAULT group-hover:text-forest text-lg font-bold transition-colors duration-300">SL</span>
+                        <div
+                            style={{
+                                width: '40px',
+                                height: '40px',
+                                border: '1.5px solid #C4772A',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                transition: 'background-color 0.3s',
+                                flexShrink: 0,
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#C4772A'}
+                            onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
+                        >
+                            <span style={{ fontFamily: 'Playfair Display, serif', color: '#C4772A', fontWeight: 700, fontSize: '1rem' }}>SL</span>
                         </div>
-                        <div>
-                            <div className={`font-serif text-xl leading-none tracking-wider ${textClass}`}>Sri Lanka</div>
-                            <div className="text-saffron-DEFAULT font-sans text-xs tracking-[0.3em] uppercase">Pearl of the Ocean</div>
+                        <div style={{ lineHeight: 1 }}>
+                            <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.1rem', letterSpacing: '0.05em', color: '#FDFAF5', lineHeight: '1.2' }}>
+                                Sri Lanka
+                            </div>
+                            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C4772A', marginTop: '2px' }}>
+                                Pearl of the Ocean
+                            </div>
                         </div>
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <div className="hidden lg:flex items-center gap-8">
+                    {/* ── Desktop Nav (md+) ── */}
+                    <div
+                        className="hidden-mobile"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '2rem',
+                        }}
+                    >
                         {navLinks.map((link) =>
                             link.children ? (
                                 <div
                                     key={link.label}
-                                    className="relative"
+                                    style={{ position: 'relative' }}
                                     onMouseEnter={() => setDropdown(link.label)}
                                     onMouseLeave={() => setDropdown(null)}
                                 >
                                     <button
-                                        className={`nav-link flex items-center gap-1 ${textClass} text-sm tracking-widest uppercase font-sans`}
                                         aria-haspopup="true"
                                         aria-expanded={dropdown === link.label}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.25rem',
+                                            background: 'none',
+                                            border: 'none',
+                                            cursor: 'pointer',
+                                            fontFamily: 'Inter, sans-serif',
+                                            fontSize: '0.75rem',
+                                            letterSpacing: '0.1em',
+                                            textTransform: 'uppercase',
+                                            color: '#FDFAF5',
+                                            padding: '0.25rem 0',
+                                        }}
                                     >
                                         {link.label}
-                                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdown === link.label ? 'rotate-180' : ''}`} />
+                                        <ChevronDown
+                                            style={{
+                                                width: '14px',
+                                                height: '14px',
+                                                transition: 'transform 0.2s',
+                                                transform: dropdown === link.label ? 'rotate(180deg)' : 'none',
+                                            }}
+                                        />
                                     </button>
                                     {dropdown === link.label && (
-                                        <div className="absolute top-full left-0 pt-3 w-48 z-50">
-                                            <div className="bg-forest border border-saffron-DEFAULT/30 py-2 shadow-luxury">
+                                        <div
+                                            style={{
+                                                position: 'absolute',
+                                                top: '100%',
+                                                left: '50%',
+                                                transform: 'translateX(-50%)',
+                                                paddingTop: '0.5rem',
+                                                zIndex: 100,
+                                                width: '180px',
+                                            }}
+                                        >
+                                            <div
+                                                style={{
+                                                    backgroundColor: '#1A1209',
+                                                    border: '1px solid rgba(196,119,42,0.3)',
+                                                    boxShadow: '0 25px 50px rgba(0,0,0,0.4)',
+                                                    padding: '0.5rem 0',
+                                                }}
+                                            >
                                                 {link.children.map((child) => (
                                                     <Link
                                                         key={child.label}
                                                         to={child.href}
-                                                        className="block px-5 py-3 text-cream/80 hover:text-saffron-DEFAULT hover:bg-white/5 font-sans text-sm tracking-wider uppercase transition-all duration-200"
+                                                        style={{
+                                                            display: 'block',
+                                                            padding: '0.6rem 1.25rem',
+                                                            fontFamily: 'Inter, sans-serif',
+                                                            fontSize: '0.75rem',
+                                                            letterSpacing: '0.08em',
+                                                            textTransform: 'uppercase',
+                                                            color: 'rgba(253,250,245,0.8)',
+                                                            textDecoration: 'none',
+                                                            transition: 'color 0.2s, background-color 0.2s',
+                                                        }}
+                                                        onMouseEnter={e => {
+                                                            e.currentTarget.style.color = '#C4772A';
+                                                            e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)';
+                                                        }}
+                                                        onMouseLeave={e => {
+                                                            e.currentTarget.style.color = 'rgba(253,250,245,0.8)';
+                                                            e.currentTarget.style.backgroundColor = 'transparent';
+                                                        }}
                                                     >
                                                         {child.label}
                                                     </Link>
@@ -103,52 +205,132 @@ export default function Navbar() {
                                 <Link
                                     key={link.label}
                                     to={link.href}
-                                    className={`nav-link ${textClass} text-sm tracking-widest uppercase font-sans ${location.pathname === link.href ? 'text-saffron-DEFAULT after:w-full' : ''}`}
+                                    style={{
+                                        fontFamily: 'Inter, sans-serif',
+                                        fontSize: '0.75rem',
+                                        letterSpacing: '0.1em',
+                                        textTransform: 'uppercase',
+                                        textDecoration: 'none',
+                                        color: location.pathname === link.href ? '#C4772A' : '#FDFAF5',
+                                        padding: '0.25rem 0',
+                                        position: 'relative',
+                                        transition: 'color 0.2s',
+                                        borderBottom: location.pathname === link.href ? '1px solid #C4772A' : '1px solid transparent',
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.color = '#C4772A'}
+                                    onMouseLeave={e => {
+                                        if (location.pathname !== link.href) e.currentTarget.style.color = '#FDFAF5';
+                                    }}
                                 >
                                     {link.label}
                                 </Link>
                             )
                         )}
-                        <Link to="/planner" className="btn-primary text-xs py-3 px-6">
+                        <Link
+                            to="/planner"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                padding: '0.6rem 1.4rem',
+                                backgroundColor: '#C4772A',
+                                color: '#FDFAF5',
+                                fontFamily: 'Inter, sans-serif',
+                                fontSize: '0.7rem',
+                                fontWeight: 500,
+                                letterSpacing: '0.15em',
+                                textTransform: 'uppercase',
+                                textDecoration: 'none',
+                                transition: 'background-color 0.3s',
+                                whiteSpace: 'nowrap',
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#A85F1A'}
+                            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#C4772A'}
+                        >
                             Plan Your Journey
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Button */}
+                    {/* ── Mobile Hamburger ── */}
                     <button
-                        className="lg:hidden p-2 text-cream"
+                        className="show-mobile"
                         onClick={() => setMobileOpen(!mobileOpen)}
                         aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={mobileOpen}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            color: '#FDFAF5',
+                            padding: '0.5rem',
+                        }}
                     >
-                        {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        {mobileOpen ? <X style={{ width: '24px', height: '24px' }} /> : <Menu style={{ width: '24px', height: '24px' }} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* ── Mobile Drawer ── */}
             <div
-                className={`lg:hidden transition-all duration-400 overflow-hidden ${mobileOpen ? 'max-h-screen' : 'max-h-0'}`}
+                style={{
+                    backgroundColor: 'rgba(26,18,9,0.98)',
+                    backdropFilter: 'blur(16px)',
+                    borderTop: '1px solid rgba(255,255,255,0.06)',
+                    padding: mobileOpen ? '1.5rem' : '0 1.5rem',
+                    maxHeight: mobileOpen ? '100vh' : '0',
+                    overflow: 'hidden',
+                    transition: 'max-height 0.4s ease, padding 0.3s ease',
+                }}
                 aria-hidden={!mobileOpen}
             >
-                <div className="bg-forest/98 backdrop-blur-md border-t border-white/5 px-4 py-6 space-y-1">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                     {navLinks.map((link) =>
                         link.children ? (
                             <div key={link.label}>
                                 <button
-                                    className="flex items-center justify-between w-full text-cream/80 py-3 font-sans text-sm tracking-widest uppercase"
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        width: '100%',
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        fontFamily: 'Inter, sans-serif',
+                                        fontSize: '0.8rem',
+                                        letterSpacing: '0.1em',
+                                        textTransform: 'uppercase',
+                                        color: 'rgba(253,250,245,0.8)',
+                                        padding: '0.75rem 0',
+                                        borderBottom: '1px solid rgba(255,255,255,0.06)',
+                                    }}
                                     onClick={() => setDropdown(dropdown === link.label ? null : link.label)}
                                 >
                                     {link.label}
-                                    <ChevronDown className={`w-4 h-4 transition-transform ${dropdown === link.label ? 'rotate-180' : ''}`} />
+                                    <ChevronDown
+                                        style={{
+                                            width: '16px',
+                                            height: '16px',
+                                            transform: dropdown === link.label ? 'rotate(180deg)' : 'none',
+                                            transition: 'transform 0.2s',
+                                        }}
+                                    />
                                 </button>
                                 {dropdown === link.label && (
-                                    <div className="pl-4 space-y-1">
+                                    <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.label}
                                                 to={child.href}
-                                                className="block text-cream/60 hover:text-saffron-DEFAULT py-2 font-sans text-sm tracking-wider uppercase transition-colors"
+                                                style={{
+                                                    display: 'block',
+                                                    padding: '0.5rem 0',
+                                                    fontFamily: 'Inter, sans-serif',
+                                                    fontSize: '0.75rem',
+                                                    letterSpacing: '0.08em',
+                                                    textTransform: 'uppercase',
+                                                    color: 'rgba(253,250,245,0.6)',
+                                                    textDecoration: 'none',
+                                                }}
                                             >
                                                 {child.label}
                                             </Link>
@@ -160,19 +342,54 @@ export default function Navbar() {
                             <Link
                                 key={link.label}
                                 to={link.href}
-                                className={`block py-3 font-sans text-sm tracking-widest uppercase transition-colors ${location.pathname === link.href ? 'text-saffron-DEFAULT' : 'text-cream/80 hover:text-saffron-DEFAULT'}`}
+                                style={{
+                                    display: 'block',
+                                    padding: '0.75rem 0',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '0.8rem',
+                                    letterSpacing: '0.1em',
+                                    textTransform: 'uppercase',
+                                    textDecoration: 'none',
+                                    color: location.pathname === link.href ? '#C4772A' : 'rgba(253,250,245,0.8)',
+                                    borderBottom: '1px solid rgba(255,255,255,0.06)',
+                                }}
                             >
                                 {link.label}
                             </Link>
                         )
                     )}
-                    <div className="pt-4">
-                        <Link to="/planner" className="btn-primary w-full justify-center text-xs py-3">
+                    <div style={{ paddingTop: '1rem' }}>
+                        <Link
+                            to="/planner"
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                padding: '0.75rem',
+                                backgroundColor: '#C4772A',
+                                color: '#FDFAF5',
+                                fontFamily: 'Inter, sans-serif',
+                                fontSize: '0.75rem',
+                                fontWeight: 500,
+                                letterSpacing: '0.15em',
+                                textTransform: 'uppercase',
+                                textDecoration: 'none',
+                            }}
+                        >
                             Plan Your Journey
                         </Link>
                     </div>
                 </div>
             </div>
+
+            {/* Responsive CSS */}
+            <style>{`
+                .hidden-mobile { display: flex; }
+                .show-mobile { display: none; }
+                @media (max-width: 900px) {
+                    .hidden-mobile { display: none !important; }
+                    .show-mobile { display: flex !important; }
+                }
+            `}</style>
         </nav>
     );
 }

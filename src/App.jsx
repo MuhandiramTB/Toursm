@@ -59,6 +59,7 @@ function ScrollToTop() {
 // Back to Top button
 function BackToTop() {
   const [visible, setVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 400);
@@ -71,25 +72,63 @@ function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       aria-label="Back to top"
-      className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-forest border border-saffron-DEFAULT/50 text-saffron-DEFAULT hover:bg-saffron-DEFAULT hover:text-forest transition-all duration-300 flex items-center justify-center shadow-luxury hover:scale-110"
+      style={{
+        position: 'fixed',
+        bottom: '1.5rem',
+        right: '1.5rem',
+        zIndex: 50,
+        width: '48px',
+        height: '48px',
+        backgroundColor: hovered ? '#C4772A' : '#1A1209',
+        border: '1.5px solid rgba(196,119,42,0.6)',
+        color: hovered ? '#1A1209' : '#C4772A',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        transition: 'background-color 0.3s, color 0.3s, transform 0.2s',
+        transform: hovered ? 'scale(1.1)' : 'scale(1)',
+      }}
     >
-      <ArrowUp className="w-5 h-5" />
+      <ArrowUp style={{ width: '18px', height: '18px' }} />
     </button>
   );
 }
 
 // WhatsApp floating button
 function WhatsAppButton() {
+  const [hovered, setHovered] = useState(false);
   return (
     <a
       href="https://wa.me/94112426900?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20visiting%20Sri%20Lanka"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-6 left-6 z-50 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-luxury hover:scale-110 hover:bg-[#1DA851] transition-all duration-300"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        position: 'fixed',
+        bottom: '1.5rem',
+        left: '1.5rem',
+        zIndex: 50,
+        width: '52px',
+        height: '52px',
+        backgroundColor: hovered ? '#1DA851' : '#25D366',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxShadow: '0 8px 24px rgba(37,211,102,0.35)',
+        transition: 'background-color 0.3s, transform 0.2s',
+        transform: hovered ? 'scale(1.12)' : 'scale(1)',
+        textDecoration: 'none',
+      }}
     >
-      <MessageCircle className="w-6 h-6 fill-white" />
+      <MessageCircle style={{ width: '24px', height: '24px', color: '#fff', fill: '#fff' }} />
     </a>
   );
 }
